@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HW JS 35</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Internal CSS -->
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+
+        .btnReview{
+            padding: 10px;
+            background-color:floralwhite;
+            font-weight: bold ;
+            border-radius: 10px;
+            
+        }
+        .btnReview:hover{
+            background-color: blue;
+            color: whitesmoke;
+        }
+        .btnDelete{
+            padding: 10px;
+            background-color:floralwhite;
+            font-weight: bold ;
+            border-radius: 10px;
+        }
+        .btnDelete:hover{
+            background-color: red;
+            color: whitesmoke;
+        }
+        .paraReviewBox{
+            width: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    
-    
+    <!-- <div class="commentDiv">
+        <h2>Comment :</h2>
+        <p style="margin: 0 auto;" class="paraReviewBox">dsgfga</p>
+        <textarea name="textarea" id="textAreaBox" cols="40" rows="10" placeholder="Review Area"></textarea>
+        <br><br>
+        <button class="btnReview">Add Review</button>
+        <button class="btnDelete">Delete Review</button>
+    </div> -->
 
+    <div class="card w-[280px] sm:w-[350px] md:w-[450px] lg:w-[500px] shadow-xl mx-auto mt-10">
+    <div class="card-body bg-violet-200 rounded">
+        <h2 class="card-title font-bold text-2xl">Review Freelancer</h2>
+        <hr>
+        <p class="paraReviewBox break-words whitespace-pre-wrap w-full"></p>
+        <hr>
+        <h2 class="card-title font-bold">Feedback to Freelancer</h2>
 
+        <!-- Rating -->
+        <div class="rating">
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+        </div>
 
-    <!-- Inline JavaScript -->
+        <!-- Textarea -->
+        <textarea type="text" rows="6" placeholder="Write your review"
+            class="textarea textarea-primary p-4 w-full" id="textAreaBox"></textarea>
+
+        <!-- Buttons -->
+        <div class="flex justify-end gap-3 flex-wrap">
+            <button class="btnDelete">Delete Review</button>
+            <button class="btnReview">Post review</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Internal JavaScript -->
     <script>
+        let btnReview = document.querySelector('.btnReview');
+        let btnDelete = document.querySelector('.btnDelete');
+        let textAreaBox = document.getElementById('textAreaBox');
+        let paraReviewBox = document.querySelector('.paraReviewBox');
 
+        btnReview.addEventListener('click', () => {
+            paraReviewBox.innerHTML = textAreaBox.value;
+            textAreaBox.value = "";
+        })
+
+        btnDelete.addEventListener('click', () => {
+            paraReviewBox.innerHTML = "";
+        })
     </script>
 </body>
 </html>
